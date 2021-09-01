@@ -1,27 +1,34 @@
 import { Container } from 'reactstrap';
-import HeaderContainer from './header';
-import FooterContainer from './footer';
+import HeaderComponent from './header';
+import FooterComponent from './footer';
+import NavBar from '../navbar';
 import styled from 'styled-components';
 
 const Layout = ({ children }) => (
     <SContainer>
-        <HeaderContainer />
+        <HeaderComponent />
             <Main>
+                <NavBar />
                 {children}
             </Main>
-        <FooterContainer />
+        <FooterComponent />
     </SContainer>
 )
 
 export default Layout;
 
 const SContainer = styled(Container)`
-    background-color: #EEEEEE;
+    width: 100vw;
+    min-height: 100vh ;
     display: flex;
-    height: 100vh;
     flex-direction: column;
+    
 `
-
 const Main = styled.main`
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
     flex: 1;
+    border-right: 2vw solid black;
+
 `

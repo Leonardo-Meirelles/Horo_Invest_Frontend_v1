@@ -1,48 +1,24 @@
-import { Link } from '@reach/router';
 import styled from 'styled-components';
-import {
-    Nav,
-    NavLink,
-    NavItem
-} from 'reactstrap';
+import logo from "../../images/logo.png"
 
-const HeaderContainer = () => (
+const HeaderComponent = () => (
     <Header>
         <div>
-            <img src="" alt="" />
+            <Img src= {logo} alt="Logo" />
         </div>
-        <Nav>
-            <NavItem>
-                <SNavLink tag={Link} to='/'>Home</SNavLink>
-            </NavItem>
-            <NavItem>
-                <SNavLink tag={Link} to='/stocks'>Stocks</SNavLink>
-            </NavItem>
-            <NavItem>
-                <SNavLink tag={Link} to='/admin'>Admin</SNavLink>
-            </NavItem>
-            <NavItem>
-                <SNavLink tag={Link} to='/buyer'>Buyer</SNavLink>
-            </NavItem>
-            <NavItem>
-                <SNavLink tag={Link} to='/about'>About</SNavLink>
-            </NavItem>
-        </Nav>
     </Header>
 );
 
 const Header = styled.header`
     background-color: black;
     color: white;
-    height: 100px;
+    height: 25vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-`
-const SNavLink = styled(NavLink)`
-    background-color: white;
-    color: black;
-    text-decoration: none;
 `
 
-export default HeaderContainer;
+const Img = styled.img`
+    height: 25vh;
+`
+
+export default HeaderComponent;

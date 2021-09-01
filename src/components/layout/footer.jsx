@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-const FooterContainer = () => (  
+const FooterComponent = () => (  
     <Footer>
         Todos os direitos reservados
     </Footer>
 );
 
-export default FooterContainer;
+export default FooterComponent;
 
 const Footer = styled.footer`
     background-color: black;
