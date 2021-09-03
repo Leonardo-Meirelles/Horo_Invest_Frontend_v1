@@ -1,0 +1,3 @@
+json-server --watch db-stocks.json --port 3005
+ou
+npm run server

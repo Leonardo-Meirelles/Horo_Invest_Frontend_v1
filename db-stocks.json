@@ -1,0 +1,43 @@
+{
+    "stocks": [
+        {
+            "id": 1,
+            "stockName": "Oi"
+        },
+
+        {
+            "id": 2,
+            "stockName": "Vivo"
+        },
+
+        {
+            "id": 3,
+            "stockName": "Magalu"
+        },
+
+        {
+            "id": 4,
+            "stockName": "Petrobras"
+        },
+
+        {
+            "id": 5,
+            "stockName": "Cielo"
+        },
+
+        {
+            "id": 6,
+            "stockName": "Americanas"
+        },
+
+        {
+            "id": 7,
+            "stockName": "Shell"
+        },
+
+        {
+            "id": 8,
+            "stockName": "Eletro"
+        }
+    ]
+}
