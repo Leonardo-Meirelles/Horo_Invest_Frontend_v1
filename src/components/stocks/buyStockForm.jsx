@@ -3,37 +3,57 @@ import { Input, InputGroup, InputGroupText, Button, Container } from "reactstrap
 import Styled from 'styled-components'
 
 function BuyStockForm() {
+    const [inputFields, setInputFields] = useState([
+        {
+            stockQuantity: '',
+            stockPrice: ''
+        },
+    ])
+    // const [userName, setUserName] = useState('')
+    // const [userEmail, setUserEmail] = useState('')
+    // const [stockQuantity, setStockQuantity] = useState('')
+    // const [stockPrice, setStockPrice] = useState('')
 
-    const [userName, setUserName] = useState('')
-    const [userEmail, setUserEmail] = useState('')
-    const [stockQuantity, setStockQuantity] = useState('')
-    const [stockPrice, setStockPrice] = useState('')
+    // const handleName = ({ target }) => {
 
-    const handleName = ({ target }) => {
+    //     setUserName(target.value)
+    // }
 
-        setUserName(target.value)
+    // const handleEmail = ({ target }) => {
+
+    //     setUserEmail(target.value)
+    // }
+
+    // const handleQuantity = ({ target }) => {
+
+    //     setStockQuantity(target.value)
+    // }
+
+    // const handlePrice = ({ target }) => {
+
+    //     setStockPrice(target.value)
+    // }
+    const handleChange = (index, event) => {
+        const values = [...inputFields]
+        values[index][event.target.name] = event.target.value;
+        setInputFields(values)
     }
 
-    const handleEmail = ({ target }) => {
-
-        setUserEmail(target.value)
+    //the page won't reload everytime the form is submitted
+    const handleSubmit = (e) => {
+        e.preventDefault()
     }
 
-    const handleQuantity = ({ target }) => {
-
-        setStockQuantity(target.value)
+    const handleAdd = () => {
+        setInputFields([...inputFields, {stockQuantity: '', stockPrice: ''}])
     }
 
-    const handlePrice = ({ target }) => {
-
-        setStockPrice(target.value)
-    }
 
     return (
 
         <SContainer>
-
-            <InputGroup>
+            <form onSubmit={handleSubmit} >
+                {/* <InputGroup>
                 <InputGroupText>Name</InputGroupText>
                 <Input type='text' value={userName} onChange={handleName} placeholder="username" />
             </InputGroup>
@@ -41,24 +61,43 @@ function BuyStockForm() {
             <InputGroup>
                 <InputGroupText>Email</InputGroupText>
                 <Input type='text' value={userEmail} onChange={handleEmail} placeholder="username" />
-            </InputGroup>
-            <Button color="success">+</Button>
+            </InputGroup> */}
+                {inputFields.map((inputField, index) =>
+                    <div key={index}>
+                        <InputGroup>
+                            <InputGroupText>Quantity</InputGroupText>
+                            <Input
+                                type='number'
+                                name='stockQuantity'
+                                value={inputField.stockQuantity}
+                                onChange={event => handleChange(index, event)}
+                                placeholder="Quantity"
+                            />
+                        </InputGroup>
 
-            <InputGroup>
-                <InputGroupText>Quantity</InputGroupText>
-                <Input type='number' value={stockQuantity} onChange={handleQuantity} placeholder="username" />
-            </InputGroup>
+                        <InputGroup>
+                            <InputGroupText>Price</InputGroupText>
+                            <Input
+                                type='number'
+                                name='stockPrice'
+                                value={inputField.stockPrice}
+                                onChange={event => handleChange(index, event)}
+                                placeholder="Price"
+                            />
+                        </InputGroup>
 
-            <InputGroup>
-                <InputGroupText>Price</InputGroupText>
-                <Input type='number' value={stockPrice} onChange={handlePrice} placeholder="username" />
-            </InputGroup>
-
+                        <Button color="success" onClick={() => handleAdd()}>+</Button>
+                        <Button color="success">-</Button>
+                    </div>
+                )}
+                <Button onClick={() => handleSubmit()}>Send order</Button>
+            </form>
 
         </SContainer>
 
     )
 }
+
 
 export default BuyStockForm
 

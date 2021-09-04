@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Jumbotron, Button, Container } from "reactstrap"
 import { getStocksByIdService } from '../../services/stocksService'
+import BuyStockForm from './../../components/stocks/buyStockForm';
 
 
 const StockInfo = ({ id }) => {
@@ -28,6 +29,7 @@ const StockInfo = ({ id }) => {
                     <Button color="primary">Learn More</Button>
                 </p>
             </Jumbotron>
+            <BuyStockForm />
         </Container>
 
     )
