@@ -12,13 +12,13 @@ const HeaderComponent = () => (
 const Header = styled.header`
     background-color: black;
     color: white;
-    height: 25vh;
+    height: 20vh;
     display: flex;
     justify-content: center;
 `
 
 const Img = styled.img`
-    height: 25vh;
+    height: 20vh;
 `
 
 export default HeaderComponent;
