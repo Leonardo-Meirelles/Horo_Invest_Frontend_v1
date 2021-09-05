@@ -9,30 +9,19 @@ function BuyStockForm() {
             stockPrice: ''
         },
     ])
-    // const [userName, setUserName] = useState('')
-    // const [userEmail, setUserEmail] = useState('')
-    // const [stockQuantity, setStockQuantity] = useState('')
-    // const [stockPrice, setStockPrice] = useState('')
+    const [userName, setUserName] = useState('')
+    const [userEmail, setUserEmail] = useState('')
 
-    // const handleName = ({ target }) => {
+    const handleName = ({ target }) => {
 
-    //     setUserName(target.value)
-    // }
+        setUserName(target.value)
+    }
 
-    // const handleEmail = ({ target }) => {
+    const handleEmail = ({ target }) => {
 
-    //     setUserEmail(target.value)
-    // }
+        setUserEmail(target.value)
+    }
 
-    // const handleQuantity = ({ target }) => {
-
-    //     setStockQuantity(target.value)
-    // }
-
-    // const handlePrice = ({ target }) => {
-
-    //     setStockPrice(target.value)
-    // }
     const handleChange = (index, event) => {
         const values = [...inputFields]
         values[index][event.target.name] = event.target.value;
@@ -48,12 +37,17 @@ function BuyStockForm() {
         setInputFields([...inputFields, {stockQuantity: '', stockPrice: ''}])
     }
 
+    const handleDelete = (index) => {
+        const values = [...inputFields];
+        values.splice(index, 1);
+        setInputFields(values)
+    }
 
     return (
 
         <SContainer>
             <form onSubmit={handleSubmit} >
-                {/* <InputGroup>
+                <InputGroup>
                 <InputGroupText>Name</InputGroupText>
                 <Input type='text' value={userName} onChange={handleName} placeholder="username" />
             </InputGroup>
@@ -61,7 +55,7 @@ function BuyStockForm() {
             <InputGroup>
                 <InputGroupText>Email</InputGroupText>
                 <Input type='text' value={userEmail} onChange={handleEmail} placeholder="username" />
-            </InputGroup> */}
+            </InputGroup>
                 {inputFields.map((inputField, index) =>
                     <div key={index}>
                         <InputGroup>
@@ -87,7 +81,7 @@ function BuyStockForm() {
                         </InputGroup>
 
                         <Button color="success" onClick={() => handleAdd()}>+</Button>
-                        <Button color="success">-</Button>
+                        <Button color="success" onClick={() => handleDelete(index)}>-</Button>
                     </div>
                 )}
                 <Button onClick={() => handleSubmit()}>Send order</Button>
@@ -98,7 +92,6 @@ function BuyStockForm() {
     )
 }
 
-
 export default BuyStockForm
 
 const SContainer = Styled(Container)`
@@ -106,5 +99,4 @@ const SContainer = Styled(Container)`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 20vh;
 `
