@@ -13,7 +13,7 @@ function Routers(){
     <Layout>
       <Router>
         <Home path='/' />
-        <Stocks exact  path='/stocks' />
+        <Stocks exact path='/stocks' />
         <StockInfo exact path='/stocks/:id' />
         <Admin exact path='/admin' />
         <Buyer exact path='/buyer' />

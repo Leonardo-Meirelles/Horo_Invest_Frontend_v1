@@ -1,16 +1,19 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Input, InputGroup, InputGroupText, Button, Container } from "reactstrap"
 import Styled from 'styled-components'
 
 function BuyStockForm() {
     const [inputFields, setInputFields] = useState([
         {
-            stockQuantity: '',
-            stockPrice: ''
+            orderQuantity: '',
+            orderPrice: ''
         },
     ])
     const [userName, setUserName] = useState('')
     const [userEmail, setUserEmail] = useState('')
+    const [total, setTotal] = useState('')
+    const orderQuantity = useState('')
+    const orderPrice = useState('')
 
     const handleName = ({ target }) => {
 
@@ -28,13 +31,21 @@ function BuyStockForm() {
         setInputFields(values)
     }
 
+    const HandleTotal = () => {
+        useEffect(() => {
+            if((orderQuantity * orderPrice) !== 0) {
+                total = orderQuantity * orderPrice
+            }
+        })
+    }
+
     //the page won't reload everytime the form is submitted
     const handleSubmit = (e) => {
         e.preventDefault()
     }
 
     const handleAdd = () => {
-        setInputFields([...inputFields, {stockQuantity: '', stockPrice: ''}])
+        setInputFields([...inputFields, { stockQuantity: '', stockPrice: '' }])
     }
 
     const handleDelete = (index) => {
@@ -48,23 +59,34 @@ function BuyStockForm() {
         <SContainer>
             <form onSubmit={handleSubmit} >
                 <InputGroup>
-                <InputGroupText>Name</InputGroupText>
-                <Input type='text' value={userName} onChange={handleName} placeholder="username" />
-            </InputGroup>
+                    <InputGroupText>Name</InputGroupText>
+                    <Input
+                        type='text'
+                        name='userName'
+                        value={userName}
+                        onChange={handleName}
+                        placeholder="username" />
+                </InputGroup>
 
-            <InputGroup>
-                <InputGroupText>Email</InputGroupText>
-                <Input type='text' value={userEmail} onChange={handleEmail} placeholder="username" />
-            </InputGroup>
+                <InputGroup>
+                    <InputGroupText>Email</InputGroupText>
+                    <Input
+                        type='text'
+                        name='userEmail'
+                        value={userEmail}
+                        onChange={handleEmail}
+                        placeholder="username" />
+                </InputGroup>
+                <br />
                 {inputFields.map((inputField, index) =>
-                    <div key={index}>
+                    <DivForm key={index}>
                         <InputGroup>
                             <InputGroupText>Quantity</InputGroupText>
                             <Input
                                 type='number'
-                                name='stockQuantity'
-                                value={inputField.stockQuantity}
-                                onChange={event => handleChange(index, event)}
+                                name='orderQuantity'
+                                value={inputField.orderQuantity}
+                                onChange={() => {handleChange(); HandleTotal();}}
                                 placeholder="Quantity"
                             />
                         </InputGroup>
@@ -73,18 +95,30 @@ function BuyStockForm() {
                             <InputGroupText>Price</InputGroupText>
                             <Input
                                 type='number'
-                                name='stockPrice'
-                                value={inputField.stockPrice}
-                                onChange={event => handleChange(index, event)}
+                                name='orderPrice'
+                                value={inputField.orderPrice}
+                                onChange={() => {handleChange(); HandleTotal()}}
+                                // onChange={event => handleChange(index, event)}
                                 placeholder="Price"
+                            />
+                        </InputGroup>
+                        
+                        <InputGroup>
+                            <InputGroupText>Total</InputGroupText>
+                            <Input
+                                type='number'
+                                name='total'
+                                value={total}
+                                placeholder='total'
+                                disabled='disabled'
                             />
                         </InputGroup>
 
                         <Button color="success" onClick={() => handleAdd()}>+</Button>
                         <Button color="success" onClick={() => handleDelete(index)}>-</Button>
-                    </div>
+                    </DivForm>
                 )}
-                <Button onClick={() => handleSubmit()}>Send order</Button>
+                <Button color="success" onClick={() => handleSubmit()}>Send order</Button>
             </form>
 
         </SContainer>
@@ -99,4 +133,9 @@ const SContainer = Styled(Container)`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+`
+
+const DivForm = Styled.div`
+    display: flex;
+    /* flex-direction:  */
 `
