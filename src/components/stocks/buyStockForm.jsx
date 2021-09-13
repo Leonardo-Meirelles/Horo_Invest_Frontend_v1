@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { Input, InputGroup, InputGroupText, Button, Container } from "reactstrap"
 import Styled from 'styled-components'
 
@@ -6,14 +6,12 @@ function BuyStockForm() {
     const [inputFields, setInputFields] = useState([
         {
             orderQuantity: '',
-            orderPrice: ''
+            orderPrice: '',
+            total: ''
         },
     ])
     const [userName, setUserName] = useState('')
     const [userEmail, setUserEmail] = useState('')
-    const [total, setTotal] = useState('')
-    const orderQuantity = useState('')
-    const orderPrice = useState('')
 
     const handleName = ({ target }) => {
 
@@ -25,18 +23,17 @@ function BuyStockForm() {
         setUserEmail(target.value)
     }
 
-    const handleChange = (index, event) => {
+    const HandleChange = (index, event) => {
         const values = [...inputFields]
         values[index][event.target.name] = event.target.value;
-        setInputFields(values)
-    }
 
-    const HandleTotal = () => {
-        useEffect(() => {
-            if((orderQuantity * orderPrice) !== 0) {
-                total = orderQuantity * orderPrice
-            }
-        })
+
+        const quantity = Number(values[index].orderQuantity)
+        const price = Number(values[index].orderPrice)
+
+        values[index].total = quantity * price
+
+        setInputFields(values)
     }
 
     //the page won't reload everytime the form is submitted
@@ -45,7 +42,7 @@ function BuyStockForm() {
     }
 
     const handleAdd = () => {
-        setInputFields([...inputFields, { stockQuantity: '', stockPrice: '' }])
+        setInputFields([...inputFields, { orderQuantity: '', orderPrice: '' }])
     }
 
     const handleDelete = (index) => {
@@ -86,7 +83,7 @@ function BuyStockForm() {
                                 type='number'
                                 name='orderQuantity'
                                 value={inputField.orderQuantity}
-                                onChange={() => {handleChange(); HandleTotal();}}
+                                onChange={event => HandleChange(index, event)}
                                 placeholder="Quantity"
                             />
                         </InputGroup>
@@ -97,18 +94,17 @@ function BuyStockForm() {
                                 type='number'
                                 name='orderPrice'
                                 value={inputField.orderPrice}
-                                onChange={() => {handleChange(); HandleTotal()}}
-                                // onChange={event => handleChange(index, event)}
+                                onChange={event => HandleChange(index, event)}
                                 placeholder="Price"
                             />
                         </InputGroup>
-                        
+
                         <InputGroup>
                             <InputGroupText>Total</InputGroupText>
                             <Input
                                 type='number'
-                                name='total'
-                                value={total}
+                                name='orderPrice'
+                                value={inputField.total}
                                 placeholder='total'
                                 disabled='disabled'
                             />
