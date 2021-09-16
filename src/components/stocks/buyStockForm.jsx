@@ -103,7 +103,7 @@ function BuyStockForm() {
                             <InputGroupText>Total</InputGroupText>
                             <Input
                                 type='number'
-                                name='orderPrice'
+                                // name='orderTotal'
                                 value={inputField.total}
                                 placeholder='total'
                                 disabled='disabled'

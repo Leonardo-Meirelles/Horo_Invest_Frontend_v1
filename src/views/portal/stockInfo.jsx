@@ -9,12 +9,12 @@ const StockInfo = ({ id }) => {
     const [stockInfo, setStockInfo] = useState({});
 
     useEffect(() => {
-        getStocksByIdService(parseInt(id))
-            .then((result) => {
-                setStockInfo(result.data)
-                console.log(result.data);
-            })
-    }, [id])
+        // getStocksByIdService(parseInt(id))
+            // .then((result) => {
+            //     setStockInfo(result.data)
+            //     console.log(result.data);
+            }, [])
+
 
 
     return (
@@ -25,9 +25,9 @@ const StockInfo = ({ id }) => {
                 <p className="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
                 <hr className="my-2" />
                 <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                <p className="lead">
+                {/* <p className="lead">
                     <Button color="primary">Learn More</Button>
-                </p>
+                </p> */}
             </Jumbotron>
             <BuyStockForm />
         </Container>

@@ -20,7 +20,7 @@ const NavBar = () => (
                 <SNavLink tag={Link} to='/admin'>Admin</SNavLink>
             </SNavItem>
             <SNavItem>
-                <SNavLink tag={Link} to='/buyer'>Buyer</SNavLink>
+                <SNavLink tag={Link} to='/user'>User</SNavLink>
             </SNavItem>
             <SNavItem>
                 <SNavLink tag={Link} to='/about'>About</SNavLink>
