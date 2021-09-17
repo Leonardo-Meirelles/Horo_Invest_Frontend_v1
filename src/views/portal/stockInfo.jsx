@@ -7,6 +7,12 @@ import BuyStockForm from './../../components/stocks/buyStockForm';
 const StockInfo = ({ id }) => {
 
     const [stockInfo, setStockInfo] = useState({});
+    const [data, setData] = useState()
+
+    const handleSubmit = (user, inputFields) => {
+        setData({user:user, inputFields:inputFields})
+        console.log(data)
+    }
 
     useEffect(() => {
         // getStocksByIdService(parseInt(id))
@@ -29,7 +35,8 @@ const StockInfo = ({ id }) => {
                     <Button color="primary">Learn More</Button>
                 </p> */}
             </Jumbotron>
-            <BuyStockForm />
+            {/* chamar serviço */}
+            <BuyStockForm handleSubmit={handleSubmit} />
         </Container>
 
     )

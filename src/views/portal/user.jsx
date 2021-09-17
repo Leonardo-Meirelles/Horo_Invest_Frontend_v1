@@ -2,9 +2,7 @@ import OrderHistory from "../../components/adminUser/orderHistory"
 import Search from "../../components/adminUser/emailSearch"
 
 const User = () => {
-    // chama a logica de deletar da api
-    
-
+  
     return(
         <>
             <h1>USER</h1>
