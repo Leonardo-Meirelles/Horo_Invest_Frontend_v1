@@ -1,27 +1,33 @@
 import { useEffect, useState } from "react"
-import { Jumbotron, Button, Container } from "reactstrap"
-import { getStocksByIdService } from '../../services/stocksService'
+import { Jumbotron, Container } from "reactstrap"
+import { getStocksByIdService, postStockOrder } from '../../services/stocksService'
 import BuyStockForm from './../../components/stocks/buyStockForm';
 
 
 const StockInfo = ({ id }) => {
 
     const [stockInfo, setStockInfo] = useState({});
-    const [data, setData] = useState()
+    const [data, setData] = useState({})
 
-    const handleSubmit = (user, inputFields) => {
-        setData({user:user, inputFields:inputFields})
-        console.log(data)
+    
+    const handleSubmit = async (user, inputFields) => {
+        
+        // console.log(id)
+        setData({ user: user, inputFields: inputFields })
+             
+        // console.log(user)
+        // console.log(inputFields)
+        console.log(data)  
+        try { 
+            const resultSubmit = await postStockOrder(id, data)
+            console.log(resultSubmit)
+            
+        } catch (error) {
+            throw error
+        }
     }
 
-    useEffect(() => {
-        // getStocksByIdService(parseInt(id))
-            // .then((result) => {
-            //     setStockInfo(result.data)
-            //     console.log(result.data);
-            }, [])
-
-
+  
 
     return (
 

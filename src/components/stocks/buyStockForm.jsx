@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Input, InputGroup, InputGroupText, Button, Container } from "reactstrap"
 import Styled from 'styled-components'
 
-function BuyStockForm({handleSubmit}) {
+function BuyStockForm({ handleSubmit }) {
 
     const [user, setUser] = useState({})
     const [inputFields, setInputFields] = useState([
@@ -16,10 +16,10 @@ function BuyStockForm({handleSubmit}) {
 
     const handleUser = (event) => {
         setUser({
-            ...user, 
+            ...user,
             [event.target.name]: event.target.value
         })
-        console.log(user)
+
 
     }
 
@@ -34,7 +34,7 @@ function BuyStockForm({handleSubmit}) {
 
         values[index].total = quantity * price
 
-        console.log(values)
+
         setInputFields(values)
     }
 
@@ -56,9 +56,9 @@ function BuyStockForm({handleSubmit}) {
     return (
 
         <SContainer>
-            <div 
+            <div
             // onSubmit={handleSubmit(user, inputFields)}
-             >
+            >
                 <InputGroup>
                     <InputGroupText>Name</InputGroupText>
                     <Input
@@ -80,10 +80,11 @@ function BuyStockForm({handleSubmit}) {
                 </InputGroup>
                 <br />
                 {inputFields.map((inputField, index) =>
-                    <DivForm key={index}>
+                    <DivForm >
                         <InputGroup>
                             <InputGroupText>Quantity</InputGroupText>
                             <Input
+                                key={index}
                                 type='number'
                                 name='orderQuantity'
                                 value={inputField.orderQuantity}
@@ -95,6 +96,7 @@ function BuyStockForm({handleSubmit}) {
                         <InputGroup>
                             <InputGroupText>Price</InputGroupText>
                             <Input
+                                key={index}
                                 type='number'
                                 name='orderPrice'
                                 value={inputField.orderPrice}
@@ -106,6 +108,7 @@ function BuyStockForm({handleSubmit}) {
                         <InputGroup>
                             <InputGroupText>Total</InputGroupText>
                             <Input
+                                key={index}
                                 type='number'
                                 // name='orderTotal'
                                 value={inputField.total}
