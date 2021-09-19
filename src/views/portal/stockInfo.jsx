@@ -7,27 +7,44 @@ import BuyStockForm from './../../components/stocks/buyStockForm';
 const StockInfo = ({ id }) => {
 
     const [stockInfo, setStockInfo] = useState({});
-    const [data, setData] = useState({})
+    const [data, setData] = useState({
+        user: {},
+        inputFields: [],
+        readyToSend: false,
+    })
 
-    
+
     const handleSubmit = async (user, inputFields) => {
-        
+
         // console.log(id)
-        setData({ user: user, inputFields: inputFields })
-             
+        setData(() => ({ user: user, inputFields: inputFields, readyToSend: true }))
+
         // console.log(user)
         // console.log(inputFields)
-        console.log(data)  
-        try { 
-            const resultSubmit = await postStockOrder(id, data)
-            console.log(resultSubmit)
-            
-        } catch (error) {
-            throw error
-        }
+        // console.log(data)
+        // try {
+        //     const resultSubmit = await postStockOrder(id, data)
+        //     console.log(resultSubmit)
+
+        // } catch (error) {
+        //     throw error
+        // }
     }
 
-  
+    useEffect(async () => {
+        console.log(data);
+        if (data.readyToSend === true) {
+            try {
+                const resultSubmit = await postStockOrder(id, data)
+                console.log(resultSubmit)
+
+            } catch (error) {
+                throw error
+            }
+        }
+    }, [data])
+
+
 
     return (
 

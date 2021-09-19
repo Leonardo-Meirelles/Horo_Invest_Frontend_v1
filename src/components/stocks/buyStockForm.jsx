@@ -4,7 +4,12 @@ import Styled from 'styled-components'
 
 function BuyStockForm({ handleSubmit }) {
 
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState(
+        {
+            userName: '',
+            userEmail: ''
+        }
+    )
     const [inputFields, setInputFields] = useState([
         {
             orderQuantity: '',
@@ -14,11 +19,11 @@ function BuyStockForm({ handleSubmit }) {
     ])
 
 
-    const handleUser = (event) => {
-        setUser({
-            ...user,
-            [event.target.name]: event.target.value
-        })
+    const handleUser = (target) => {
+        setUser(prevState => ({
+            ...prevState,
+            [target.name]: target.value
+        }))
 
 
     }
@@ -65,7 +70,7 @@ function BuyStockForm({ handleSubmit }) {
                         type='text'
                         name='userName'
                         value={user.userName}
-                        onChange={handleUser}
+                        onChange={(e) => handleUser(e.target)}
                         placeholder="Name" />
                 </InputGroup>
 
@@ -75,7 +80,7 @@ function BuyStockForm({ handleSubmit }) {
                         type='text'
                         name='userEmail'
                         value={user.userEmail}
-                        onChange={handleUser}
+                        onChange={(e) => handleUser(e.target)}
                         placeholder="Email" />
                 </InputGroup>
                 <br />
