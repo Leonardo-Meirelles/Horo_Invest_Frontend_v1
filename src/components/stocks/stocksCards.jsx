@@ -20,7 +20,7 @@ const ShowStocks = ({ stock, handleClick }) => {
                 <CardHeader>{stockName}</CardHeader>
                 <CardBody>
                     <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                    <Button onClick={() => handleClick(id)}>Abrir</Button>
+                    <Button onClick={() => handleClick(id)}>Open</Button>
                 </CardBody>
                 <CardFooter>Footer</CardFooter>
             </Card>
