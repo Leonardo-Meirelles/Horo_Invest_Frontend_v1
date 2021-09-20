@@ -51,5 +51,4 @@ const SDiv = Styled.div`
     grid-column-gap: 20px;
     grid-row-gap: 20px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-
 `

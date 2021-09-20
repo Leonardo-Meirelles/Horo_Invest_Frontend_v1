@@ -1,4 +1,3 @@
-import OrderHistory from "../../components/adminUser/orderHistory"
 import Search from "../../components/adminUser/emailSearch"
 
 const User = () => {
@@ -7,7 +6,6 @@ const User = () => {
         <>
             <h1>USER</h1>
             <Search />
-            {/* <OrderHistory handleDelete={handleDelete} stockOrders={[]} /> */}
         </>
     )
 }
