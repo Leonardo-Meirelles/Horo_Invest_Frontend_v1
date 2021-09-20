@@ -1,6 +1,11 @@
+import AboutDevs from "../../components/about"
+
 const About = () => {
-    return(
-        <h1>ABOUT</h1>
+    return (
+        <>
+            <h1>DEVELOPED BY</h1>
+            <AboutDevs />
+        </>
     )
 }
 

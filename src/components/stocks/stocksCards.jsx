@@ -1,32 +1,43 @@
 import React from 'react';
+import Styled from 'styled-components';
 import {
     Card,
     Button,
     CardHeader,
     CardFooter,
     CardBody,
-    CardTitle,
+    // CardTitle,
     CardText
 } from 'reactstrap';
 
 const ShowStocks = ({ stock, handleClick }) => {
 
-    const { id, stockName } = stock
+    const { id, stockName, stockPrice } = stock
 
     return ( 
 
         <div>
-            <Card>
+            <SCard>
                 <CardHeader>{stockName}</CardHeader>
                 <CardBody>
-                    <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+                    <SCardText>{stockPrice}</SCardText>
                     <Button onClick={() => handleClick(id)}>Open</Button>
                 </CardBody>
-                <CardFooter>Footer</CardFooter>
-            </Card>
+            </SCard>
         </div>
 
     );
 };
+
+const SCard = Styled(Card)`
+width: 15vw;
+text-align: center;
+font-size: 20px;
+`
+
+const SCardText = Styled(CardText)`
+font-weight: 700;
+font-size: 25px;
+`
 
 export default ShowStocks;
