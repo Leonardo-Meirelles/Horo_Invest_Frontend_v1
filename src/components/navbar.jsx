@@ -16,9 +16,9 @@ const NavBar = () => (
             <SNavItem>
                 <SNavLink tag={Link} to='/stocks'>Stocks</SNavLink>
             </SNavItem>
-            <SNavItem>
+            {/* <SNavItem>
                 <SNavLink tag={Link} to='/admin'>Admin</SNavLink>
-            </SNavItem>
+            </SNavItem> */}
             <SNavItem>
                 <SNavLink tag={Link} to='/user'>User</SNavLink>
             </SNavItem>
