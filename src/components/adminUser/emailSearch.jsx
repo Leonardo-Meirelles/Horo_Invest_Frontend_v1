@@ -11,7 +11,6 @@ const Search = () => {
     const [orderDelete, setOrderDelete] = useState([])
 
     const handleSubmit = async (event) => {
-        //previne o evento padrão do form
         event.preventDefault()
         try {
             const result = await getUserByEmail(email)
