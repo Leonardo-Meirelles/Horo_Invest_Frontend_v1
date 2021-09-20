@@ -58,7 +58,7 @@ const Search = () => {
                     {/* se stockOrders estiver definida, faz map; caso contrário, nao faz nada */}
                     {userOrders.order?.map(({ stock, orderQuantity, orderPrice, id }, i) => (
                         <tr key={i}>
-                            <td>{stock}</td>
+                            <td>{stock.stockName}</td>
                             <td>{orderQuantity}</td>
                             <td>{orderPrice}</td>
                             <td>total</td>
