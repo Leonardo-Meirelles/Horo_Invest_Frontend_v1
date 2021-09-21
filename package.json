@@ -1,6 +1,9 @@
 {
-  "name": "front-project2",
-  "version": "0.1.0",
+  "name": "horo_invest-v1",
+  "version": "1.0.0",
+  "author": "Giulia Alzuguir",
+  "contributors": ["Leonardo Meireles"],
+  "description": "Infnet Fullstack Bootcamp - Project 2",
   "private": true,
   "dependencies": {
     "@reach/router": "^1.3.4",
