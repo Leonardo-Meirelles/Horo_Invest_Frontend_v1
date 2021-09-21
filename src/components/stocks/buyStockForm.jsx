@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { Input, InputGroup, InputGroupText, Button, Container } from "reactstrap"
+import React, { useState } from 'react'
+import { Input, InputGroup, InputGroupText, Button, Container } from 'reactstrap'
 import Styled from 'styled-components'
 
 function BuyStockForm({ handleSubmit }) {
@@ -71,7 +71,7 @@ function BuyStockForm({ handleSubmit }) {
                         name='userName'
                         value={user.userName}
                         onChange={(e) => handleUser(e.target)}
-                        placeholder="Name" />
+                        placeholder='Name' />
                 </InputGroup>
 
                 <InputGroup>
@@ -81,7 +81,7 @@ function BuyStockForm({ handleSubmit }) {
                         name='userEmail'
                         value={user.userEmail}
                         onChange={(e) => handleUser(e.target)}
-                        placeholder="Email" />
+                        placeholder='Email' />
                 </InputGroup>
                 <br />
                 {inputFields.map((inputField, index) =>
@@ -94,7 +94,7 @@ function BuyStockForm({ handleSubmit }) {
                                 name='orderQuantity'
                                 value={inputField.orderQuantity}
                                 onChange={event => HandleChange(index, event)}
-                                placeholder="Quantity"
+                                placeholder='Quantity'
                             />
                         </InputGroup>
 
@@ -122,11 +122,11 @@ function BuyStockForm({ handleSubmit }) {
                             />
                         </InputGroup>
 
-                        <Button color="success" onClick={() => handleAdd()}>+</Button>
-                        <Button color="success" onClick={() => handleDelete(index)}>-</Button>
+                        <Button color='success' onClick={() => handleAdd()}>+</Button>
+                        <Button color='success' onClick={() => handleDelete(index)}>-</Button>
                     </DivForm>
                 )}
-                <SButton color="success"
+                <SButton color='success'
                     onClick={() => handleSubmit(user, inputFields)}
                 >Send order</SButton>
             </div>
@@ -151,5 +151,5 @@ const DivForm = Styled.div`
 `
 
 const SButton = Styled(Button)`
-    margin-top: 25px;
+    margin-top: 30px;
 `

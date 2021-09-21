@@ -14,7 +14,7 @@ const ShowStocks = ({ stock, handleClick }) => {
 
     const { id, stockName, stockPrice } = stock
 
-    return ( 
+    return (
 
         <div>
             <SCard>

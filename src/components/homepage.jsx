@@ -23,7 +23,8 @@ const Homepage = () => (
                     where you are, be it from the comfort of you house or from your lunch break at work. Let the
                     complicated parts for us.</p>
             </InnerDiv>
-            <Img src={user} alt="user working from home" />
+            <Img src={user}
+                alt="user working from home" />
         </Div>
         <Div2>
             <InnerDiv2>
@@ -35,7 +36,8 @@ const Homepage = () => (
                     support page.
                 </p>
             </InnerDiv2>
-            <Img2 src={team} alt="team" />
+            <Img2 src={team}
+                alt="team" />
         </Div2>
     </>
 );

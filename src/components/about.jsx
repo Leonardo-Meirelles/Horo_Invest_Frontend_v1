@@ -13,7 +13,8 @@ const AboutDevs = () => (
                 <Img src={linkedin}
                     alt="linkedin icon" />
             </a>
-            <a href="https://github.com/giualz" target="_blank">
+            <a href="https://github.com/giualz"
+                target="_blank">
                 <Img src={github}
                     alt="github icon" />
             </a>
@@ -23,7 +24,7 @@ const AboutDevs = () => (
                     alt="instagram icon" />
             </a>
         </Div>
-        
+
         <Div>
             <h2>Leonardo Meirelles</h2>
             <a href='https://www.linkedin.com/in/leomeirelles/'
