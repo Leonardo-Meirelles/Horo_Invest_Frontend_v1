@@ -1,17 +1,9 @@
 import Styled from 'styled-components'
-import graph from '../images/graph.jpg'
 import team from '../images/team.jpg'
 import user from '../images/user.jpg'
 
 const Homepage = () => (
     <>
-        {/* <Div>
-            <div>
-                <h2>Our service</h2>
-                <p></p>
-            </div>
-            <Img src={graph} alt="candle graph" />
-        </Div> */}
         <Div>
             <InnerDiv>
                 <h2>Making your life simpler</h2>

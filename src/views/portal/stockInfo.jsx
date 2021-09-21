@@ -8,7 +8,6 @@ import Styled from "styled-components";
 const StockInfo = ({ id }) => {
     const { state } = useLocation();
     const { stocks } = state;
-    const [stockInfo, setStockInfo] = useState({});
     const [data, setData] = useState({
         user: {},
         inputFields: [],
@@ -27,7 +26,7 @@ const StockInfo = ({ id }) => {
         async function sending() {
             if (data.readyToSend === true) {
                 try {
-                    const resultSubmit = await postStockOrder(id, data)
+                    await postStockOrder(id, data)
 
                 } catch (error) {
                     throw error

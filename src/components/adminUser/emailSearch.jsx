@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import { Input, InputGroup, InputGroupText, Button, Container, Table } from "reactstrap"
 import Styled from "styled-components";
 import { getUserByEmail } from "../../services/userService";
-import { deleteOrderById } from "../../services/orderService";
 
 const Search = () => {
 
     const [userOrders, setUserOrders] = useState('')
     const [email, setEmail] = useState('')
-    const [orderDelete, setOrderDelete] = useState([])
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -20,12 +18,6 @@ const Search = () => {
             
             throw error
         }
-    }
-
-    // chama a logica de deletar da api
-    const handleDelete = async (id) => {
-        setOrderDelete = await deleteOrderById(id)
-        return orderDelete
     }
 
     return (
@@ -61,7 +53,7 @@ const Search = () => {
                             <td>{orderQuantity}</td>
                             <td>{orderPrice}</td>
                             <td>total</td>
-                            <td><Button color="success" onClick={() => handleDelete(id) }>-</Button></td>
+                            <td><Button color="success" >-</Button></td>
                         </tr>
                     ))}
                 </tbody>

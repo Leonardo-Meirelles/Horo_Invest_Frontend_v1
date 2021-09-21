@@ -8,16 +8,16 @@ const AboutDevs = () => (
     <>
         <Div>
             <h2>Giulia Alzuguir</h2>
-            <a href="https://br.linkedin.com/in/giulia-alzuguir"
+            <a rel="noreferrer" href="https://br.linkedin.com/in/giulia-alzuguir"
                 target="_blank">
                 <Img src={linkedin}
                     alt="linkedin icon" />
             </a>
-            <a href="https://github.com/giualz" target="_blank">
+            <a rel="noreferrer" href="https://github.com/giualz" target="_blank">
                 <Img src={github}
                     alt="github icon" />
             </a>
-            <a href="https://www.instagram.com/giualz/"
+            <a rel="noreferrer" href="https://www.instagram.com/giualz/"
                 target="_blank">
                 <Img src={instagram}
                     alt="instagram icon" />
@@ -26,17 +26,17 @@ const AboutDevs = () => (
         
         <Div>
             <h2>Leonardo Meirelles</h2>
-            <a href='https://www.linkedin.com/in/leomeirelles/'
+            <a rel="noreferrer" href='https://www.linkedin.com/in/leomeirelles/'
                 target="_blank">
                 <Img src={linkedin}
                     alt="linkedin icon" />
             </a>
-            <a href='https://github.com/Leonardo-Meirelles'
+            <a rel="noreferrer" href='https://github.com/Leonardo-Meirelles'
                 target="_blank">
                 <Img src={github}
                     alt="github icon" />
             </a>
-            <a href='https://gitlab.com/leonardo.dmeirelles'
+            <a rel="noreferrer" href='https://gitlab.com/leonardo.dmeirelles'
                 target="_blank">
                 <Img src={gitlab}
                     alt="gitlab icon" />
