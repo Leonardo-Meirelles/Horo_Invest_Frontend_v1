@@ -15,9 +15,9 @@ const Search = () => {
         try {
             const result = await getUserByEmail(email)
             setUserOrders(result.data)
-            console.log(userOrders)
+            
         } catch (error) {
-            console.log(error)
+            
             throw error
         }
     }

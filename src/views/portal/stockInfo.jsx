@@ -16,33 +16,23 @@ const StockInfo = ({ id }) => {
 
     const handleSubmit = async (user, inputFields) => {
 
-        // console.log(id)
         setData(() => ({ user: user, inputFields: inputFields, readyToSend: true }))
-
-        // console.log(user)
-        // console.log(inputFields)
-        // console.log(data)
-        // try {
-        //     const resultSubmit = await postStockOrder(id, data)
-        //     console.log(resultSubmit)
-
-        // } catch (error) {
-        //     throw error
-        // }
     }
 
-    useEffect(async () => {
-        console.log(data);
-        if (data.readyToSend === true) {
-            try {
-                const resultSubmit = await postStockOrder(id, data)
-                console.log(resultSubmit)
+    useEffect(() => {
+        async function sending() {
+            if (data.readyToSend === true) {
+                try {
+                    const resultSubmit = await postStockOrder(id, data)
 
-            } catch (error) {
-                throw error
+                } catch (error) {
+                    throw error
+                }
             }
         }
+        sending()
     }, [data])
+
 
 
 
