@@ -8,7 +8,7 @@ We made this project during the Infnet Fullsatck (MERN) Bootcamp :)
 
 ## Link to website
 
-
+https://horo.netlify.app
 
 ## Authors
 
@@ -61,9 +61,9 @@ We made this project during the Infnet Fullsatck (MERN) Bootcamp :)
 Clone the project
 
 ```bash
-  git clone https://github.com/Leonardo-Meirelles/
+  git clone https://github.com/Leonardo-Meirelles/Horo_Invest_Frontend-Project-2
                                 or
-  git clone https://gitlab.com/leonardo.dmeirelles/
+  git clone https://gitlab.com/leonardo.dmeirelles/Horo_Invest_Frontend-Project-2
 ```
 
 Go to the project directory
