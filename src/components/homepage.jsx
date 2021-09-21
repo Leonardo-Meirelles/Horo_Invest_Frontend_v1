@@ -1,5 +1,5 @@
 import Styled from 'styled-components'
-import graph from '../images/graph.jpg'
+// import graph from '../images/graph.jpg'
 import team from '../images/team.jpg'
 import user from '../images/user.jpg'
 

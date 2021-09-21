@@ -17,7 +17,7 @@ const Stocks = () => {
         getStocks()
     }, [])
 
-    const handleStockDetails = (id) => navigate(`/stocks/${id}`) 
+    const handleStockDetails = (id) => navigate(`/stocks/${id}`, { state: { stocks: stocks }}) 
 
     return (
 

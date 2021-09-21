@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react"
-import { Jumbotron, Container } from "reactstrap"
+import { useLocation } from "@reach/router";
+import { Container } from "reactstrap"
 import { getStocksByIdService, postStockOrder } from '../../services/stocksService'
 import BuyStockForm from './../../components/stocks/buyStockForm';
+import Styled from "styled-components";
 
-
-const StockInfo = ({ id }) => {
-
+const StockInfo = ({ id }) => { 
+    const {state} = useLocation();
+    const { stocks } = state;
     const [stockInfo, setStockInfo] = useState({});
     const [data, setData] = useState({
         user: {},
         inputFields: [],
         readyToSend: false,
-    })
+    });
+    const result = stocks.find( stock => {
+       return parseInt(stock.id) === parseInt(id)
+    });
+    // console.log(result)
 
 
     const handleSubmit = async (user, inputFields) => {
@@ -31,6 +37,8 @@ const StockInfo = ({ id }) => {
         // }
     }
 
+    
+
     useEffect(async () => {
         console.log(data);
         if (data.readyToSend === true) {
@@ -49,20 +57,20 @@ const StockInfo = ({ id }) => {
     return (
 
         <Container>
-            <Jumbotron>
-                <h1 className="display-3">{stockInfo.stockName}</h1>
-                <p className="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
-                <hr className="my-2" />
-                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                {/* <p className="lead">
-                    <Button color="primary">Learn More</Button>
-                </p> */}
-            </Jumbotron>
+            <h1>{ result.stockName }</h1>
+            <Price>{ result.stockPrice }</Price>
             {/* chamar serviço */}
             <BuyStockForm handleSubmit={handleSubmit} />
         </Container>
 
     )
 }
+
+const Price = Styled.h2`
+font-weight: 700;
+font-size: 30px;
+text-align: center;
+margin-bottom: 30px;
+`
 
 export default StockInfo

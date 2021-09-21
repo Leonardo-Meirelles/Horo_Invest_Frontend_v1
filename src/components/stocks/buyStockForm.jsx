@@ -126,9 +126,9 @@ function BuyStockForm({ handleSubmit }) {
                         <Button color="success" onClick={() => handleDelete(index)}>-</Button>
                     </DivForm>
                 )}
-                <Button color="success"
+                <SButton color="success"
                     onClick={() => handleSubmit(user, inputFields)}
-                >Send order</Button>
+                >Send order</SButton>
             </div>
 
         </SContainer>
@@ -148,4 +148,8 @@ const SContainer = Styled(Container)`
 const DivForm = Styled.div`
     display: flex;
     /* flex-direction:  */
+`
+
+const SButton = Styled(Button)`
+    margin-top: 25px;
 `
