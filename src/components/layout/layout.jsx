@@ -4,7 +4,7 @@ import NavBar from '../navbar';
 import Styled from 'styled-components';
 
 const Layout = ({ children }) => (
-
+    
     <SContainer>
         <HeaderComponent />
         <Main>
@@ -15,7 +15,6 @@ const Layout = ({ children }) => (
         </Main>
         <FooterComponent />
     </SContainer>
-    
 )
 
 export default Layout;

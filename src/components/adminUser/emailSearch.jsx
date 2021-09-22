@@ -42,7 +42,6 @@ const Search = () => {
                         <th>Stock</th>
                         <th>Quantity</th>
                         <th>Price</th>
-                        <th>Total</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,8 +51,6 @@ const Search = () => {
                             <td>{stock.stockName}</td>
                             <td>{orderQuantity}</td>
                             <td>{orderPrice}</td>
-                            <td>total</td>
-                            <td><Button color="success" >-</Button></td>
                         </tr>
                     ))}
                 </tbody>

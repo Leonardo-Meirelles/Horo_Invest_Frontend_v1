@@ -4,6 +4,7 @@ import { Container } from "reactstrap"
 import { postStockOrder } from '../../services/stocksService'
 import BuyStockForm from './../../components/stocks/buyStockForm';
 import Styled from "styled-components";
+import { toast } from "react-toastify";
 
 const StockInfo = ({ id }) => {
     const { state } = useLocation();
@@ -18,7 +19,7 @@ const StockInfo = ({ id }) => {
     });
 
     const handleSubmit = async (user, inputFields) => {
-
+        
         setData(() => ({ user: user, inputFields: inputFields, readyToSend: true }))
     }
 
@@ -27,20 +28,16 @@ const StockInfo = ({ id }) => {
             if (data.readyToSend === true) {
                 try {
                     await postStockOrder(id, data)
-
+                    .then(() => toast.success("Order sent"))
                 } catch (error) {
-                    throw error
+                    toast.error('Order failed')
                 }
             }
         }
         sending()
     }, [data])
 
-
-
-
     return (
-
         <Container>
             <h1>{result.stockName}</h1>
             <Price>{result.stockPrice}</Price>

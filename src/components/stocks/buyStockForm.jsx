@@ -18,14 +18,11 @@ function BuyStockForm({ handleSubmit }) {
         },
     ])
 
-
     const handleUser = (target) => {
         setUser(prevState => ({
             ...prevState,
             [target.name]: target.value
         }))
-
-
     }
 
     const HandleChange = (index, event) => {
@@ -33,20 +30,13 @@ function BuyStockForm({ handleSubmit }) {
         const values = [...inputFields]
         values[index][event.target.name] = event.target.value;
 
-
         const quantity = Number(values[index].orderQuantity)
         const price = Number(values[index].orderPrice)
 
         values[index].total = quantity * price
 
-
         setInputFields(values)
     }
-
-    //the page won't reload everytime the form is submitted
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    // }
 
     const handleAdd = () => {
         setInputFields([...inputFields, { orderQuantity: '', orderPrice: '' }])
@@ -61,9 +51,7 @@ function BuyStockForm({ handleSubmit }) {
     return (
 
         <SContainer>
-            <div
-            // onSubmit={handleSubmit(user, inputFields)}
-            >
+            <div>
                 <InputGroup>
                     <InputGroupText>Name</InputGroupText>
                     <Input
@@ -130,9 +118,7 @@ function BuyStockForm({ handleSubmit }) {
                     onClick={() => handleSubmit(user, inputFields)}
                 >Send order</SButton>
             </div>
-
         </SContainer>
-
     )
 }
 
