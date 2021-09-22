@@ -20,11 +20,9 @@ const Stocks = () => {
     const handleStockDetails = (id) => navigate(`/stocks/${id}`, { state: { stocks: stocks }}) 
 
     return (
-
         <SContainer>
 
             <h1>STOCKS</h1>
-            
             <SDiv>
                 {stocks.map((stock) => (
                     <ShowStocks key={stock.id} stock={stock} handleClick={handleStockDetails} />
@@ -32,7 +30,6 @@ const Stocks = () => {
             </SDiv>
 
         </SContainer>
-
     )
 }
 

@@ -13,7 +13,6 @@ const ShowStocks = ({ stock, handleClick }) => {
     const { id, stockName, stockPrice } = stock
 
     return (
-
         <div>
             <SCard>
                 <CardHeader>{stockName}</CardHeader>
@@ -23,7 +22,6 @@ const ShowStocks = ({ stock, handleClick }) => {
                 </CardBody>
             </SCard>
         </div>
-
     );
 };
 
