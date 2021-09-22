@@ -29,7 +29,6 @@ const StockInfo = ({ id }) => {
                 try {
                     await postStockOrder(id, data)
                     .then(() => toast.success("Order sent"))
-                    console.log('########### foi')
                 } catch (error) {
                     toast.error('Order failed')
                 }
