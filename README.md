@@ -4,7 +4,7 @@ This project was made to simulate a stocks trading company, where an user can pe
 
 In this project we also tryed to code in pairs, simulating a company, using merge requests and code review.
 
-We made this project during the Infnet Fullsatck (MERN) Bootcamp :) 
+This project is of our own, and we made it during the Infnet Fullsatck (MERN) Bootcamp :) 
 
 ## Link to website
 
