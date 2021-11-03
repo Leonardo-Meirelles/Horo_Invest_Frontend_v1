@@ -61,7 +61,7 @@ https://horo.netlify.app
 Clone the project
 
 ```bash
-  git clone https://github.com/Leonardo-Meirelles/Horo_Invest_Frontend-Project-2
+  git clone https://github.com/Leonardo-Meirelles/Horo_Invest_Frontend_v1.git
                                 or
   git clone https://gitlab.com/leonardo.dmeirelles/Horo_Invest_Frontend-Project-2
 ```
